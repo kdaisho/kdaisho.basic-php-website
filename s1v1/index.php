@@ -1,4 +1,7 @@
 <?php
+include("inc/data.php");
+include("inc/functions.php");
+
 $pageTitle = "Personal Media Library";
 $section = null;
 
@@ -9,23 +12,13 @@ include("inc/header.php"); ?>
 
 				<h2>May we suggest something?</h2>
 
-				<ul class="catalog">
-					<li><a href="#">
-					<img src="img/media/design_patterns.jpg" alt="Design Patterns: Elements of Reusable Object-Oriented Software">
-					<p>View Details</p>
-				</a></li>
-				<li><a href="#">
-					<img src="img/media/forest_gump.jpg" alt="Forest Gump">
-					<p>View Details</p>
-				</a></li>
-				<li><a href="#">
-					<img src="img/media/beethoven.jpg" alt="Beethoven: Complete Symphonies">
-					<p>View Details</p>
-				</a></li>
-				<li><a href="#">
-					<img src="img/media/clean_code.jpg" alt="The Clean Coder: A Code of Conduct for Professional Programmers">
-					<p>View Details</p>
-				</a></li>
+				<ul class="catalog items">
+					<?php
+					$random = array_rand($catalog,4);
+			    foreach($random as $id) {
+			      echo get_item_html($id,$catalog[$id]);
+			    }
+			    ?>
 				</ul>
 
 			</div>
